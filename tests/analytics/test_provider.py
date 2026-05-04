@@ -6,7 +6,7 @@ from pathlib import Path
 from app.analytics import install, provider
 from app.analytics.events import Event
 
-from typing import Never, NoReturn
+from typing import NoReturn
 
 class _StubAnalytics:
     def __init__(self) -> None:
