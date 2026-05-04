@@ -158,7 +158,7 @@ def test_capture_install_detected_if_needed_returns_false_when_marker_write_fail
     monkeypatch.setattr(provider, "_FIRST_RUN_PATH", marker_path)
     monkeypatch.setattr(provider, "get_analytics", lambda: stub)
 
-    def _raise_oserror(*_args, **_kwargs) -> None:
+    def _raise_oserror(*_args, **_kwargs) -> NoReturn:
         raise OSError("touch failed")
 
     monkeypatch.setattr(Path, "touch", _raise_oserror)
