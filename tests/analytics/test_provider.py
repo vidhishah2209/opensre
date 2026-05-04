@@ -7,6 +7,7 @@ from typing import NoReturn
 from app.analytics import install, provider
 from app.analytics.events import Event
 
+
 class _StubAnalytics:
     def __init__(self) -> None:
         self.events: list[tuple[Event, provider.Properties | None]] = []
