@@ -2,12 +2,10 @@ from __future__ import annotations
 
 import uuid
 from pathlib import Path
+from typing import NoReturn
 
 from app.analytics import install, provider
 from app.analytics.events import Event
-
-from typing import NoReturn
-
 
 class _StubAnalytics:
     def __init__(self) -> None:
