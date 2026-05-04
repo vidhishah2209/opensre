@@ -6,6 +6,7 @@ from pathlib import Path
 from app.analytics import install, provider
 from app.analytics.events import Event
 
+from typing import Never, NoReturn
 
 class _StubAnalytics:
     def __init__(self) -> None:
@@ -136,7 +137,7 @@ def test_get_or_create_anonymous_id_returns_uuid_when_write_fails(monkeypatch, t
     monkeypatch.setattr(provider, "_CONFIG_DIR", tmp_path)
     monkeypatch.setattr(provider, "_ANONYMOUS_ID_PATH", anonymous_id_path)
 
-    def _raise_oserror(*_args, **_kwargs) -> None:
+    def _raise_oserror(*_args, **_kwargs) -> NoReturn:
         raise OSError("disk write failed")
 
     monkeypatch.setattr(Path, "write_text", _raise_oserror)
