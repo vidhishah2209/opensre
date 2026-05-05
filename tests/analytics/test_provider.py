@@ -131,7 +131,9 @@ def test_analytics_disabled_when_do_not_track_opt_out(monkeypatch, tmp_path: Pat
     assert client_inits == 0
 
 
-def test_get_or_create_anonymous_id_returns_uuid_when_write_fails(monkeypatch, tmp_path: Path) -> None:
+def test_get_or_create_anonymous_id_returns_uuid_when_write_fails(
+    monkeypatch, tmp_path: Path
+) -> None:
     """Test that _get_or_create_anonymous_id returns a UUID when file write fails."""
     anonymous_id_path = tmp_path / "anonymous_id"
     monkeypatch.setattr(provider, "_CONFIG_DIR", tmp_path)
